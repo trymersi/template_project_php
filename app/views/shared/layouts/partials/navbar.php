@@ -6,7 +6,7 @@
         <!-- Logo -->
         <?php
         // Tentukan URL dashboard berdasarkan role
-        $dashboardUrl = ($this->session->get('user_role') === 'admin') ? BASE_URL . 'admin/dashboard' : BASE_URL . 'user/dashboard';
+        $dashboardUrl = BASE_URL . 'dashboard';
         ?>
         <a href="<?= $dashboardUrl ?>" class="logo">
           <!-- logo-->
@@ -46,11 +46,11 @@
                         <li class="user-body">
                             <?php
                             // Tentukan URL profil berdasarkan role
-                            $profilUrl = ($this->session->get('user_role') === 'admin') ? BASE_URL . 'admin/profil' : BASE_URL . 'user/profil';
+                            $profilUrl = BASE_URL . 'profile';
                             ?>
                             <a class="dropdown-item" href="<?= $profilUrl ?>"><i class="ti-user text-muted me-2"></i> Profil</a>
                             <?php if ($this->session->get('user_role') === 'admin'): ?>
-                            <a class="dropdown-item" href="<?= BASE_URL ?>admin/pengaturan"><i class="ti-settings text-muted me-2"></i> Pengaturan Website</a>
+                            <a class="dropdown-item" href="<?= BASE_URL ?>pengaturan"><i class="ti-settings text-muted me-2"></i> Pengaturan Website</a>
                             <?php endif; ?>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<?= BASE_URL ?>auth/logout"><i class="ti-lock text-muted me-2"></i> Logout</a>

@@ -183,9 +183,35 @@ class Controller
      */
     public function json($data, $status = 200)
     {
-        header('Content-Type: application/json');
-        http_response_code($status);
-        echo json_encode($data);
+        try {
+            // Pastikan header belum dikirim
+            if (!headers_sent()) {
+                header('Content-Type: application/json');
+                header('Access-Control-Allow-Origin: *');
+                header('Access-Control-Allow-Methods: GET, POST');
+                header('Access-Control-Allow-Headers: Content-Type');
+                http_response_code($status);
+            } else {
+                error_log('Headers sudah dikirim sebelum json()');
+            }
+            
+            // Encode data ke JSON
+            $jsonData = json_encode($data);
+            
+            // Jika terjadi error pada json_encode
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                error_log('JSON encode error: ' . json_last_error_msg());
+                // Kirim error fallback
+                echo json_encode(['error' => 'JSON encoding error: ' . json_last_error_msg()]);
+                exit;
+            }
+            
+            echo $jsonData;
+        } catch (\Exception $e) {
+            error_log('Error pada Controller::json: ' . $e->getMessage());
+            // Kirim error fallback
+            echo json_encode(['error' => 'Internal server error']);
+        }
         exit;
     }
     

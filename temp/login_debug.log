@@ -25,3 +25,17 @@
 [2025-05-16 10:58:04] Login attempt: email=try.mersianto@gmail.com, user found, hash=$2y$10$cN.JUzm52Llq8sVMr2Y0ReYP9BCxOwilwoS1pe6aJXTewBXqj3xlO, password_verify result=true
 [2025-05-16 11:51:20] Login attempt: email=admin@admin.com, user found, hash=$2y$10$KfID.ZrXu3e.lBZhQrsRZuHqYuL5sP03zoGrRhRQl4sLg5HVjsL/6, password_verify result=false
 [2025-05-16 11:51:20] Login attempt: email=admin@admin.com, user found, hash=$2y$10$KfID.ZrXu3e.lBZhQrsRZuHqYuL5sP03zoGrRhRQl4sLg5HVjsL/6, password_verify result=false, Admin bypass berhasil
+[2025-05-16 15:55:25] Login attempt: email=admin@admin.com, user found, hash=$2y$10$KfID.ZrXu3e.lBZhQrsRZuHqYuL5sP03zoGrRhRQl4sLg5HVjsL/6, password_verify result=false
+[2025-05-16 15:55:26] Login attempt: email=admin@admin.com, user found, hash=$2y$10$KfID.ZrXu3e.lBZhQrsRZuHqYuL5sP03zoGrRhRQl4sLg5HVjsL/6, password_verify result=false, Admin bypass berhasil
+[2025-05-16 15:55:34] Login attempt: email=try.mersianto@gmail.com, user found, hash=$2y$10$cN.JUzm52Llq8sVMr2Y0ReYP9BCxOwilwoS1pe6aJXTewBXqj3xlO, password_verify result=true
+[2025-05-16 16:13:39] Login attempt: email=admin@admin.com, user found, hash=$2y$10$KfID.ZrXu3e.lBZhQrsRZuHqYuL5sP03zoGrRhRQl4sLg5HVjsL/6, password_verify result=false
+[2025-05-16 16:13:39] Login attempt: email=admin@admin.com, user found, hash=$2y$10$KfID.ZrXu3e.lBZhQrsRZuHqYuL5sP03zoGrRhRQl4sLg5HVjsL/6, password_verify result=false, Admin bypass berhasil
+[2025-05-16 16:30:02] Login attempt: email=try.mersianto@gmail.com, user found, hash=$2y$10$cN.JUzm52Llq8sVMr2Y0ReYP9BCxOwilwoS1pe6aJXTewBXqj3xlO, password_verify result=true
+[2025-05-16 16:40:43] Login attempt: email=admin@admin.com, user found, hash=$2y$10$KfID.ZrXu3e.lBZhQrsRZuHqYuL5sP03zoGrRhRQl4sLg5HVjsL/6, password_verify result=false
+[2025-05-16 16:40:43] Login attempt: email=admin@admin.com, user found, hash=$2y$10$KfID.ZrXu3e.lBZhQrsRZuHqYuL5sP03zoGrRhRQl4sLg5HVjsL/6, password_verify result=false, Admin bypass berhasil
+[2025-05-16 16:41:04] Login attempt: email=admin@admin.com, user found, hash=$2y$10$KfID.ZrXu3e.lBZhQrsRZuHqYuL5sP03zoGrRhRQl4sLg5HVjsL/6, password_verify result=false
+[2025-05-16 16:41:04] Login attempt: email=admin@admin.com, user found, hash=$2y$10$KfID.ZrXu3e.lBZhQrsRZuHqYuL5sP03zoGrRhRQl4sLg5HVjsL/6, password_verify result=false, Admin bypass berhasil
+[2025-05-16 17:08:01] Login attempt: email=admin@admin.com, user found, hash=$2y$10$KfID.ZrXu3e.lBZhQrsRZuHqYuL5sP03zoGrRhRQl4sLg5HVjsL/6, password_verify result=false
+[2025-05-16 17:08:01] Login attempt: email=admin@admin.com, user found, hash=$2y$10$KfID.ZrXu3e.lBZhQrsRZuHqYuL5sP03zoGrRhRQl4sLg5HVjsL/6, password_verify result=false, Admin bypass berhasil
+[2025-05-16 17:11:26] Login attempt: email=admin@admin.com, user found, hash=$2y$10$KfID.ZrXu3e.lBZhQrsRZuHqYuL5sP03zoGrRhRQl4sLg5HVjsL/6, password_verify result=false
+[2025-05-16 17:11:26] Login attempt: email=admin@admin.com, user found, hash=$2y$10$KfID.ZrXu3e.lBZhQrsRZuHqYuL5sP03zoGrRhRQl4sLg5HVjsL/6, password_verify result=false, Admin bypass berhasil

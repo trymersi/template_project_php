@@ -8,7 +8,7 @@
                     <li class="header">Dashboard & Menu</li>
                     <?php
                     // Tentukan URL dashboard berdasarkan role
-                    $dashboardUrl = ($this->session->get('user_role') === 'admin') ? BASE_URL . 'admin/dashboard' : BASE_URL . 'user/dashboard';
+                    $dashboardUrl = BASE_URL . 'dashboard';
                     ?>
                     <li class="<?= $this->getActiveMenu('dashboard') ?>">
                         <a href="<?= $dashboardUrl ?>">
@@ -20,18 +20,11 @@
                     <?php if ($this->session->get('user_role') === 'admin'): ?>
                     <!-- Menu Khusus Admin -->
                     <li class="header">Manajemen</li>
-                    <li class="treeview <?= $this->getActiveMenu('produk') ?>">
-                        <a href="#">
+                    <li class="<?= $this->getActiveMenu('produk') ?>">
+                        <a href="<?= BASE_URL ?>produk">
                             <i class="icon-Box2"><span class="path1"></span><span class="path2"></span></i>
                             <span>Produk</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </span>
                         </a>
-                        <ul class="treeview-menu">
-                            <li><a href="<?= BASE_URL ?>admin/produk"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Daftar Produk</a></li>
-                            <li><a href="<?= BASE_URL ?>admin/produk/tambah"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Tambah Produk</a></li>
-                        </ul>
                     </li>
                     
                     <li class="treeview <?= $this->getActiveMenu('user') ?>">
@@ -50,7 +43,7 @@
                     <!-- Menu Khusus User -->
                     <li class="header">Produk</li>
                     <li class="<?= $this->getActiveMenu('produk') ?>">
-                        <a href="<?= BASE_URL ?>user/produk">
+                        <a href="<?= BASE_URL ?>produk">
                             <i class="icon-Box2"><span class="path1"></span><span class="path2"></span></i>
                             <span>Daftar Produk</span>
                         </a>
@@ -60,7 +53,7 @@
                     <li class="header">Akun</li>
                     <?php
                     // Tentukan URL profil berdasarkan role
-                    $profilUrl = ($this->session->get('user_role') === 'admin') ? BASE_URL . 'admin/profil' : BASE_URL . 'user/profil';
+                    $profilUrl = BASE_URL . 'profile';
                     ?>
                     <li class="<?= $this->getActiveMenu('profil') ?>">
                         <a href="<?= $profilUrl ?>">
@@ -70,7 +63,7 @@
                     </li>
                     <?php if ($this->session->get('user_role') === 'admin'): ?>
                     <li class="<?= $this->getActiveMenu('pengaturan') ?>">
-                        <a href="<?= BASE_URL ?>admin/pengaturan">
+                        <a href="<?= BASE_URL ?>pengaturan">
                             <i class="icon-Settings-1"><span class="path1"></span><span class="path2"></span></i>
                             <span>Pengaturan Website</span>
                         </a>
@@ -89,7 +82,7 @@
     <div class="sidebar-footer">
         <a href="<?= $profilUrl ?>" class="link" data-bs-toggle="tooltip" title="Profil"><i class="ti-user"></i></a>
         <?php if ($this->session->get('user_role') === 'admin'): ?>
-        <a href="<?= BASE_URL ?>admin/pengaturan" class="link" data-bs-toggle="tooltip" title="Pengaturan Website"><i class="ti-settings"></i></a>
+        <a href="<?= BASE_URL ?>pengaturan" class="link" data-bs-toggle="tooltip" title="Pengaturan Website"><i class="ti-settings"></i></a>
         <?php endif; ?>
         <a href="<?= BASE_URL ?>auth/logout" class="link" data-bs-toggle="tooltip" title="Logout"><i class="ti-lock"></i></a>
     </div>

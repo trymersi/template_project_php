@@ -12,6 +12,7 @@ use core\Helper;
 class AuthController extends Controller
 {
     private $userModel;
+    private $pengaturanModel;
     
     /**
      * Constructor
@@ -24,6 +25,7 @@ class AuthController extends Controller
         
         // Inisialisasi model
         $this->userModel = $this->model('User');
+        $this->pengaturanModel = $this->model('Pengaturan');
     }
     
     /**
@@ -38,9 +40,24 @@ class AuthController extends Controller
             $this->redirect('dashboard');
         }
         
+        // Ambil pengaturan website
+        $pengaturan = $this->pengaturanModel->getAllPengaturan();
+        
+        // Default pengaturan jika belum ada di database
+        $defaultPengaturan = [
+            'nama_situs' => APP_NAME,
+            'tagline' => 'Silakan login untuk melanjutkan',
+            'logo_path' => 'assets/images/logo.png',
+            'favicon_path' => 'assets/images/favicon.ico',
+        ];
+        
+        // Gabungkan default dengan pengaturan dari database
+        $pengaturan = array_merge($defaultPengaturan, $pengaturan);
+        
         $data = [
             'title' => 'Login',
-            'errors' => []
+            'errors' => [],
+            'pengaturan' => $pengaturan
         ];
         
         $this->view('shared/auth/login', $data);
@@ -78,11 +95,26 @@ class AuthController extends Controller
             ['email' => 'required|email', 'password' => 'required']
         );
         
+        // Ambil pengaturan website
+        $pengaturan = $this->pengaturanModel->getAllPengaturan();
+        
+        // Default pengaturan jika belum ada di database
+        $defaultPengaturan = [
+            'nama_situs' => APP_NAME,
+            'tagline' => 'Silakan login untuk melanjutkan',
+            'logo_path' => 'assets/images/logo.png',
+            'favicon_path' => 'assets/images/favicon.ico',
+        ];
+        
+        // Gabungkan default dengan pengaturan dari database
+        $pengaturan = array_merge($defaultPengaturan, $pengaturan);
+        
         if (!empty($errors)) {
             $data = [
                 'title' => 'Login',
                 'errors' => $errors,
-                'email' => $email
+                'email' => $email,
+                'pengaturan' => $pengaturan
             ];
             
             $this->view('shared/auth/login', $data);
@@ -102,9 +134,9 @@ class AuthController extends Controller
             
             // Redirect berdasarkan role
             if ($user['role'] === 'admin') {
-                $this->redirect('admin/dashboard');
+                $this->redirect('dashboard');
             } else {
-                $this->redirect('user/dashboard');
+                $this->redirect('dashboard');
             }
         } else {
             $this->session->setFlash('error', 'Email atau password salah');
@@ -112,7 +144,8 @@ class AuthController extends Controller
             $data = [
                 'title' => 'Login',
                 'errors' => [],
-                'email' => $email
+                'email' => $email,
+                'pengaturan' => $pengaturan
             ];
             
             $this->view('shared/auth/login', $data);
@@ -131,9 +164,24 @@ class AuthController extends Controller
             $this->redirect('dashboard');
         }
         
+        // Ambil pengaturan website
+        $pengaturan = $this->pengaturanModel->getAllPengaturan();
+        
+        // Default pengaturan jika belum ada di database
+        $defaultPengaturan = [
+            'nama_situs' => APP_NAME,
+            'tagline' => 'Daftar akun baru',
+            'logo_path' => 'assets/images/logo.png',
+            'favicon_path' => 'assets/images/favicon.ico',
+        ];
+        
+        // Gabungkan default dengan pengaturan dari database
+        $pengaturan = array_merge($defaultPengaturan, $pengaturan);
+        
         $data = [
             'title' => 'Register',
-            'errors' => []
+            'errors' => [],
+            'pengaturan' => $pengaturan
         ];
         
         $this->view('shared/auth/register', $data);
@@ -167,6 +215,20 @@ class AuthController extends Controller
         $password = $_POST['password'] ?? '';
         $confirm_password = $_POST['confirm_password'] ?? '';
         
+        // Ambil pengaturan website
+        $pengaturan = $this->pengaturanModel->getAllPengaturan();
+        
+        // Default pengaturan jika belum ada di database
+        $defaultPengaturan = [
+            'nama_situs' => APP_NAME,
+            'tagline' => 'Daftar akun baru',
+            'logo_path' => 'assets/images/logo.png',
+            'favicon_path' => 'assets/images/favicon.ico',
+        ];
+        
+        // Gabungkan default dengan pengaturan dari database
+        $pengaturan = array_merge($defaultPengaturan, $pengaturan);
+        
         // Validasi input
         $errors = $this->validate(
             [
@@ -193,7 +255,8 @@ class AuthController extends Controller
                 'title' => 'Register',
                 'errors' => $errors,
                 'nama' => $nama,
-                'email' => $email
+                'email' => $email,
+                'pengaturan' => $pengaturan
             ];
             
             $this->view('shared/auth/register', $data);
@@ -218,7 +281,8 @@ class AuthController extends Controller
                 'title' => 'Register',
                 'errors' => [],
                 'nama' => $nama,
-                'email' => $email
+                'email' => $email,
+                'pengaturan' => $pengaturan
             ];
             
             $this->view('shared/auth/register', $data);

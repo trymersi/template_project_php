@@ -6,7 +6,7 @@
             </li>
         </ul>
     </div>
-    &copy; <?= date('Y') ?> <a href="<?= BASE_URL ?>"><?= APP_NAME ?></a>. All Rights Reserved.
+    &copy; <?= date('Y') ?> <a href="<?= BASE_URL ?>"><?= isset($pengaturan) ? $pengaturan['nama_situs'] : APP_NAME ?></a>. All Rights Reserved.
 </footer>
 
 <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->

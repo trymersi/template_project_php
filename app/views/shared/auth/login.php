@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? APP_NAME ?></title>
+    <title><?= $title ?? $pengaturan['nama_situs'] ?></title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="<?= BASE_URL . $pengaturan['favicon_path'] ?>">
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -136,10 +139,14 @@
         <div class="card">
             <div class="card-header">
                 <div class="app-logo">
-                    <i class="bi bi-box-seam"></i>
+                    <?php if (file_exists($pengaturan['logo_path']) && !is_dir($pengaturan['logo_path'])): ?>
+                        <img src="<?= BASE_URL . $pengaturan['logo_path'] ?>" alt="Logo" class="img-fluid" style="max-height: 50px;">
+                    <?php else: ?>
+                        <i class="bi bi-box-seam"></i>
+                    <?php endif; ?>
                 </div>
-                <h1 class="app-name"><?= APP_NAME ?></h1>
-                <p class="app-description">Silakan login untuk melanjutkan</p>
+                <h1 class="app-name"><?= $pengaturan['nama_situs'] ?></h1>
+                <p class="app-description"><?= $pengaturan['tagline'] ?></p>
             </div>
             <div class="card-body">
                 <?php if ($this->session->hasFlash('error')): ?>
@@ -194,7 +201,7 @@
         
         <div class="text-center mt-3">
             <p class="small text-white">
-                &copy; <?= date('Y') ?> <?= APP_NAME ?> v<?= APP_VERSION ?>
+                &copy; <?= date('Y') ?> <?= $pengaturan['nama_situs'] ?> v<?= APP_VERSION ?>
             </p>
         </div>
     </div>

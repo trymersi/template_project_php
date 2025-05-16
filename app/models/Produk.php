@@ -43,7 +43,20 @@ class Produk
         $this->db->query('SELECT * FROM produk WHERE id = :id');
         $this->db->bind(':id', $id);
         
-        return $this->db->single();
+        $produk = $this->db->single();
+        
+        if ($produk) {
+            // Format tanggal untuk tampilan
+            $helper = new \core\Helper();
+            if (!empty($produk['created_at'])) {
+                $produk['created_at'] = $helper->formatDate($produk['created_at']);
+            }
+            if (!empty($produk['updated_at'])) {
+                $produk['updated_at'] = $helper->formatDate($produk['updated_at']);
+            }
+        }
+        
+        return $produk;
     }
     
     /**
@@ -205,7 +218,7 @@ class Produk
             $subdata = [];
             $subdata[] = $row['id'];
             $subdata[] = $row['nama_produk'];
-            $subdata[] = "Rp " . number_format($row['harga'], 0, ',', '.');
+            $subdata[] = $row['harga'];
             $subdata[] = $row['stok'];
             
             // Action buttons

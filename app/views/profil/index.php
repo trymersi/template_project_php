@@ -2,11 +2,15 @@
 <div class="content-header">
     <div class="d-flex align-items-center">
         <div class="me-auto">
-            <h3 class="page-title">Profil Saya</h3>
+            <h3 class="page-title"><?= $isAdmin ? 'Profil Admin' : 'Profil Saya' ?></h3>
             <div class="d-inline-block align-items-center">
                 <nav>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="<?= BASE_URL ?>user/dashboard"><i class="mdi mdi-home-outline"></i></a></li>
+                        <li class="breadcrumb-item">
+                            <a href="<?= BASE_URL ?>dashboard">
+                                <i class="mdi mdi-home-outline"></i>
+                            </a>
+                        </li>
                         <li class="breadcrumb-item active" aria-current="page">Profil</li>
                     </ol>
                 </nav>
@@ -77,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fungsi untuk mendapatkan CSRF token baru
     function refreshCsrfToken() {
         $.ajax({
-            url: '<?= BASE_URL ?>user/getNewCsrfToken',
+            url: '<?= BASE_URL ?>profile/getNewCsrfToken',
             type: 'GET',
             dataType: 'json',
             success: function(response) {
@@ -96,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
         $(this).find('.is-invalid').removeClass('is-invalid');
         
         $.ajax({
-            url: '<?= BASE_URL ?>user/updateProfil',
+            url: '<?= BASE_URL ?>profile/update',
             type: 'POST',
             data: $(this).serialize(),
             dataType: 'json',

@@ -29,9 +29,9 @@ class HomeController extends Controller
         // Cek jika user sudah login, redirect ke dashboard
         if ($this->session->has('user_id')) {
             if ($this->session->get('user_role') === 'admin') {
-                $this->redirect('admin/dashboard');
+                $this->redirect('dashboard');
             } else {
-                $this->redirect('user/dashboard');
+                $this->redirect('dashboard');
             }
         } else {
             // Jika belum login, redirect ke halaman login
