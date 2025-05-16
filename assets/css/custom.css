@@ -1,0 +1,65 @@
+/**
+ * Custom CSS untuk aplikasi
+ * Memperbaiki berbagai masalah tampilan termasuk horizontal scroll
+ */
+
+/* Mencegah horizontal scroll pada seluruh halaman */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Perbaikan untuk wrapper */
+.wrapper {
+    overflow-x: hidden;
+}
+
+/* Perbaikan untuk content-wrapper */
+.content-wrapper {
+    overflow-x: hidden;
+}
+
+/* Perbaikan untuk table responsive */
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* Perbaikan DataTables */
+.dataTables_wrapper {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    width: auto;
+    white-space: nowrap;
+}
+
+.dataTables_wrapper .dataTables_info {
+    white-space: normal;
+}
+
+/* Perbaikan untuk pagination container */
+div.dataTables_wrapper div.row {
+    margin: 0;
+    width: 100%;
+}
+
+/* Mengatur ulang ukuran pada pagination element */
+div.dataTables_wrapper div.dataTables_length,
+div.dataTables_wrapper div.dataTables_filter,
+div.dataTables_wrapper div.dataTables_info,
+div.dataTables_wrapper div.dataTables_paginate {
+    width: auto;
+    float: none;
+}
+
+@media screen and (max-width: 767px) {
+    div.dataTables_wrapper div.dataTables_length,
+    div.dataTables_wrapper div.dataTables_filter,
+    div.dataTables_wrapper div.dataTables_info,
+    div.dataTables_wrapper div.dataTables_paginate {
+        text-align: center;
+    }
+} 
